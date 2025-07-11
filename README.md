@@ -6,7 +6,7 @@
 
 # プログラム紹介
 ## boot.py
-Pin19をHighにした時間から、Pin23がHighになった時間までを計測してtxtファイルに記録する．Pin23がHighになったときにPin19をLowに変更し，任意の時間が経過したあとに，再度Pin19をHighにする．
+Pin19をHighにした時間から、Pin23がHighになった時間までを計測してcsvファイルに記録する．Pin23がHighになったときにPin19をLowに変更し，任意の時間が経過したあとに，再度Pin19をHighにする．
 
 ## main.py
 外部ウェイクアップによりDeepsleepから復帰し任意の時間経過したあと，Pin23をHighにして再度Deepsleepに入る．
