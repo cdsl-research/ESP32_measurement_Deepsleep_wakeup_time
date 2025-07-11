@@ -15,7 +15,7 @@ Pin19をHighにした時間から、Pin23がHighになった時間までを計�
 ESPNOWのセットアップとデータの送受信を行う．今回はセットアップのみを使用する．
 # 実行結果
 ## 測定器
-https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png
+![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
 
 ## 被測定器
 
