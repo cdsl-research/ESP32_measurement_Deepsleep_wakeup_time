@@ -4,15 +4,16 @@
 # ファイル構成
 測定器ではルートディレクトリにboot.pyを置く．
 
+```
 測定器/
 └─boot.py
 
 被測定機ではルートディレクトリにmain.pyを置き，libディレクトリ内にespnow_helper.pyを置く．
 被測定器/
 ├─lib
-|　└─espnow_helper.py
+| └─espnow_helper.py
 └─main.py
-
+```
 
 # プログラム紹介
 ## boot.py
