@@ -11,6 +11,8 @@ Pin19をHighにした時間から、Pin23がHighになった時間までを計�
 ## main.py
 外部ウェイクアップによりDeepsleepから復帰し任意の時間経過したあと，Pin23をHighにして再度Deepsleepに入る．
 
+## espnow_helper.py
+ESPNOWのセットアップとデータの送受信を行う．今回はセットアップのみを使用する．
 # 実行結果
 ## 測定器
 
