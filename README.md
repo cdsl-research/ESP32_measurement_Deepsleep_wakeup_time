@@ -16,9 +16,11 @@ ESPNOWのセットアップとデータの送受信を行う．今回はセッ�
 # 実行結果
 ## 測定器
 以下はcsvファイルに出力された復帰にかかった時間(ms)である．
+
 ![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
 
 ## 被測定器
 以下はターミナルの出力結果である．Deepsleepからの復帰を繰り返しているため，初期化シーケンスが並んで表示されている．
+
 ![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E8%A2%AB%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
 
