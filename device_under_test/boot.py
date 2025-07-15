@@ -221,7 +221,7 @@ def main():
     try:
         node = NodeSensor()
         wake_end_pin.value(1)
-        node_c.run()
+        node.run()
     except Exception as e:
         print(f"error: {e}")
         # If there's an error, wait a bit then reset
