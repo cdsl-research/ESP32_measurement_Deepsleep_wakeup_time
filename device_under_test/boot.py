@@ -1,3 +1,5 @@
+# 被測定用のboot.py
+
 import sys
 sys.path.append('/lib')
 
