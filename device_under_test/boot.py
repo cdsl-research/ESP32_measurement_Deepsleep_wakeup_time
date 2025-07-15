@@ -1,26 +1,20 @@
-"""
-Node C (Sensor) - Environmental Sensing with Deep Sleep
-Performs temperature/humidity sensing and power monitoring with deep sleep optimization
-"""
-
 import sys
 sys.path.append('/lib')
 
 from machine import I2C, Pin, deepsleep, reset_cause, DEEPSLEEP_RESET
 import time
 import json
-from ina219 import INA219
 # from dht22 import DHT22  # DHT22を使用しない
 from espnow_helper import ESPNowHelper
 import esp32
 
 # 使用するピン（RTC対応ピン）
-wake_pin = Pin(33, mode=Pin.IN, pull=Pin.PULL_DOWN)
+wake_pin = Pin(2, mode=Pin.IN, pull=Pin.PULL_DOWN)
 wake_end_pin = Pin(19, mode=Pin.OUT, pull=Pin.PULL_DOWN)
 # EXT0で外部信号によるWakeupを設定（HIGHで起動）
 esp32.wake_on_ext0(pin=wake_pin, level=esp32.WAKEUP_ANY_HIGH)
 
-class NodeCSensor:
+class NodeSensor:
     def __init__(self):
         
         # Timing parameters
@@ -32,15 +26,6 @@ class NodeCSensor:
         
         # Initialize I2C for INA219
         self.i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=400000)
-        
-        # Initialize INA219 power monitor
-        try:
-            self.ina219 = INA219(self.i2c, address=0x40)
-            self.ina219.set_calibration_32v_2a()
-            print("INA219 initialized")
-        except Exception as e:
-            print(f"INA219 init error: {e}")
-            self.ina219 = None
         
         # DHT22は使用しない - ダミーデータを生成
         self.dht22 = None
@@ -110,23 +95,6 @@ class NodeCSensor:
         except Exception as e:
             print(f"Settings save error: {e}")
     
-    def measure_power_consumption(self):
-        """Measure and log current power consumption"""
-        if not self.ina219:
-            return
-            
-        try:
-            bus_voltage = self.ina219.get_bus_voltage()
-            shunt_voltage = self.ina219.get_shunt_voltage()
-            current_ma = self.ina219.get_current()
-            power_mw = self.ina219.get_power()
-            timestamp = time.ticks_ms()
-            
-            print(f"NODE_C_POWER,{bus_voltage:.2f},{current_ma:.2f},{power_mw:.2f},{shunt_voltage:.2f},{timestamp}")
-            
-        except Exception as e:
-            print(f"Power measurement error: {e}")
-    
     def read_sensors(self):
         """Read environmental sensors (dummy data)"""
         # ダミーデータを生成
@@ -164,22 +132,11 @@ class NodeCSensor:
         current = 0.0
         power = 0.0
         
-        if self.ina219:
-            try:
-                voltage = self.ina219.get_bus_voltage()
-                current = self.ina219.get_current()
-                power = self.ina219.get_power()
-            except Exception as e:
-                print(f"Power read error: {e}")
-        
         # Prepare sensor data
         sensor_data = {
             "type": "sensor_data",
             "temperature": temperature,
             "humidity": humidity,
-            "voltage": voltage,
-            "current": current,
-            "power": power,
             "timestamp": time.ticks_ms(),
             "boot_count": self.boot_count
         }
@@ -187,7 +144,7 @@ class NodeCSensor:
         # Send to Node B
         success = self.espnow.send_data(sensor_data, self.node_b_mac)
         if success:
-            print(f"Sensor data sent: T={temperature:.1f}°C, H={humidity:.1f}%, V={voltage:.2f}V")
+            print(f"Sensor data sent: T={temperature:.1f}°C, H={humidity:.1f}%")
         else:
             print("Failed to send sensor data")
     
@@ -260,11 +217,11 @@ class NodeCSensor:
 def main():
     """Entry point"""
     try:
-        node_c = NodeCSensor()
+        node = NodeSensor()
         wake_end_pin.value(1)
         node_c.run()
     except Exception as e:
-        print(f"Node B error: {e}")
+        print(f"error: {e}")
         # If there's an error, wait a bit then reset
         time.sleep(5)
         import machine
