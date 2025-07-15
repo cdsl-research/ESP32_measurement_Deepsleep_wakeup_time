@@ -11,7 +11,7 @@
 被測定器/
 ├─lib
 | └─espnow_helper.py
-└─main.py
+└─boot.py
 ```
 
 # プログラム紹介
