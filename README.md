@@ -27,13 +27,13 @@ GPIO4をHighにした時間から、GPIO19がHighになった時間までを計�
 ESPNOWのセットアップとデータの送受信を行う．今回はセットアップのみを使用する．
 # 実行結果
 ## 測定器
-以下は測定器のwake_time.csvに出力された復帰にかかった時間(ms)である．
-
-![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
-
 以下は測定器のターミナルの出力である。初期化シーケンスのみ表示される。
 
 <img width="664" height="208" alt="image" src="https://github.com/user-attachments/assets/54d92011-d8f9-4dc1-a366-ed2057ce8fdc" />
+
+以下は測定器のwake_time.csvに出力された復帰にかかった時間(ms)である．
+
+![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
 
 
 ## 被測定器
