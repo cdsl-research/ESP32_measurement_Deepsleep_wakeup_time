@@ -11,7 +11,7 @@ from espnow_helper import ESPNowHelper
 import esp32
 
 # 使用するピン（RTC対応ピン）
-wake_pin = Pin(2, mode=Pin.IN, pull=Pin.PULL_DOWN)
+wake_pin = Pin(4, mode=Pin.IN, pull=Pin.PULL_DOWN)
 wake_end_pin = Pin(19, mode=Pin.OUT, pull=Pin.PULL_DOWN)
 # EXT0で外部信号によるWakeupを設定（HIGHで起動）
 esp32.wake_on_ext0(pin=wake_pin, level=esp32.WAKEUP_ANY_HIGH)
@@ -128,11 +128,6 @@ class NodeSensor:
         
         # Read environmental sensors
         temperature, humidity = self.read_sensors()
-        
-        # Read power measurements
-        voltage = 0.0
-        current = 0.0
-        power = 0.0
         
         # Prepare sensor data
         sensor_data = {
