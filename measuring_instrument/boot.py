@@ -3,7 +3,7 @@
 from machine import Pin, I2C
 import time
 
-wake_output = Pin(2, Pin.OUT, pull=Pin.PULL_DOWN)
+wake_output = Pin(4, Pin.OUT, pull=Pin.PULL_DOWN)
 wake_input = Pin(19, Pin.IN, pull=Pin.PULL_DOWN)
 
 interval = 5
