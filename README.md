@@ -27,7 +27,7 @@ GPIO4をHighにした時間から、GPIO19がHighになった時間までを計�
 ESPNOWのセットアップとデータの送受信を行う．今回はセットアップのみを使用する．
 # 実行結果
 ## 測定器
-以下は測定器のターミナルの出力である。初期化シーケンスのみ表示される。
+以下は測定器のターミナルの出力である。初期化シーケンスが一回だけ表示される。
 
 <img width="664" height="208" alt="image" src="https://github.com/user-attachments/assets/54d92011-d8f9-4dc1-a366-ed2057ce8fdc" />
 
