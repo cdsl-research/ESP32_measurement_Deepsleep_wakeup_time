@@ -17,7 +17,7 @@
 # プログラム紹介
 ## 測定器
 ### boot.py
-GPIO2をHighにした時間から、GPIO19がHighになった時間までを計測してwake_time.csvに記録する．GPIO19がHighになったときにGPIO2をLowに変更し，任意の時間が経過したあとに，再度GPIO2をHighにする．
+GPIO4をHighにした時間から、GPIO19がHighになった時間までを計測してwake_time.csvに記録する．GPIO19がHighになったときにGPIO4をLowに変更し，任意の時間が経過したあとに，再度GPIO2をHighにする．
 
 ## 被測定器
 ### boot.py
@@ -30,6 +30,11 @@ ESPNOWのセットアップとデータの送受信を行う．今回はセッ�
 以下は測定器のwake_time.csvに出力された復帰にかかった時間(ms)である．
 
 ![image](https://github.com/cdsl-research/ESP32_measurement_Deepsleep_wakeup_time/blob/master/%E6%B8%AC%E5%AE%9A%E5%99%A8%E3%81%AE%E5%AE%9F%E8%A1%8C%E7%B5%90%E6%9E%9C.png)
+
+以下は測定器のターミナルの出力である。初期化シーケンスのみ表示される。
+
+<img width="664" height="208" alt="image" src="https://github.com/user-attachments/assets/54d92011-d8f9-4dc1-a366-ed2057ce8fdc" />
+
 
 ## 被測定器
 以下は被測定器のターミナルの出力結果である．Deepsleepからの復帰を繰り返しているため，「ets Jun 8 2016 00:22:57」から始まる、初期化シーケンスが並んで表示されている．
